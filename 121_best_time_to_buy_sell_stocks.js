@@ -1,25 +1,15 @@
-const prices = [2, 4, 1];
+const prices = [7, 1, 5, 3, 6, 4];
 
 var maxProfit = function (prices) {
   const arrLen = prices.length;
   let lowest = prices[0];
+  let profit = 0;
   for (i = 0; i < arrLen; i++) {
-    if (prices[i] < lowest) {
-      lowest = prices[i];
+    if (prices[i] - lowest > profit) {
+      profit = prices[i] - lowest;
     }
   }
-  const lowestInd = prices.indexOf(lowest);
-  let highestAfterLowest = lowest;
-
-  for (i = lowestInd + 1; i < arrLen; i++) {
-    console.log(prices[i]);
-
-    if (prices[i] > highestAfterLowest) {
-      highestAfterLowest = prices[i];
-    }
-  }
-
-  console.log(lowest, lowestInd, highestAfterLowest);
+  console.log(profit);
 
   //   return highestAfterLowest - lowest;
 };
